@@ -1,97 +1,223 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🛒 GroceryGo — High-Performance Grocery Delivery App
 
-# Getting Started
+**GroceryGo** is a production-grade grocery delivery mobile application built with **React Native CLI**, designed for scalability, performance, and secure user experiences.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+The app delivers a modern shopping workflow with real-time cart synchronization, intelligent location-based product fetching, and advanced session security including **Single Device Login**.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## ✨ Overview
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+GroceryGo is engineered with a **modular navigation architecture**, **secure authentication flow**, and **optimized data handling** to support real-world production environments.
 
-```sh
-# Using npm
+It focuses on:
+
+* Seamless user experience
+* High-performance rendering
+* Secure session management
+* Scalable architecture
+* Efficient network usage
+
+---
+
+## 🏗️ Technical Architecture
+
+### 📱 Navigation Flow & Routing
+
+The application follows a **hierarchical navigation structure** for scalability and maintainability:
+
+* **Root Navigator**
+  Controls switching between authentication and main application stacks based on user session state.
+
+* **Auth Stack**
+  Handles onboarding flow:
+
+  * Welcome screens
+  * OTP-based signup
+  * JWT-secured login
+
+* **Main Stack**
+  Core application modules:
+
+  * Home feed
+  * Profile management
+  * Order history
+
+* **Bottom Tabs + Native Stacks**
+
+  * Smooth screen transitions
+  * High-level feature switching
+  * Modular navigation organization
+
+---
+
+## 🔐 Security & Session Management
+
+* **JWT Authentication**
+  Secure client-server communication with token-based access.
+
+* **Single Device Login (SDL)**
+  Automatic session invalidation when user logs in from a new device.
+
+* **Protected Routes**
+  Higher-order authentication guards prevent unauthorized screen access.
+
+---
+
+## 🚀 Key Features
+
+### 🛍️ Shopping Experience
+
+* Blinkit-style horizontal category tray
+* Optimized product listing using FlatList
+* Pagination support for large data sets
+* Pull-to-refresh functionality
+* Debounced search to prevent excessive API calls
+* Real-time cart updates with dynamic billing
+* Automatic tax and delivery fee calculation
+
+---
+
+### 📍 Location & Logistics
+
+* Live geolocation for delivery address detection
+* Nearest dark store product fetching
+* Location-based product availability
+
+---
+
+### 💳 Payments & Wallet
+
+* Razorpay payment gateway integration
+* In-app digital wallet
+* One-click checkout experience
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** React Native CLI
+* **Navigation:** Native Stack + Bottom Tabs
+* **State Management:** Redux Toolkit / Zustand (configurable)
+* **Payments:** Razorpay SDK
+* **Performance:**
+
+  * Debounced search
+  * Image caching
+  * Optimized re-renders
+
+---
+
+## 📈 Performance Optimizations
+
+* Efficient memory cleanup in side-effects
+* Debounced search to reduce network load
+* Modular navigation structure for scalability
+* Optimized list rendering for high data volume
+
+---
+
+## 📸 Screenshots
+
+| Home Screen        | Product Detail     | Wallet & Pay       |
+| ------------------ | ------------------ | ------------------ |
+| *(Add screenshot)* | *(Add screenshot)* | *(Add screenshot)* |
+
+---
+
+## 🔧 Installation & Setup
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone <your-repository-link>
+cd GroceryGo
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Link Native Assets
+
+```bash
+npx react-native link
+```
+
+---
+
+## ▶️ Running the Application
+
+### Start Metro Server
+
+```bash
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Run on Android
 
-### Android
-
-```sh
-# Using npm
+```bash
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
+---
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### Run on iOS
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Install CocoaPods (first time only):
 
-```sh
+```bash
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+Run app:
 
-```sh
-# Using npm
+```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## 🔄 Development
 
-## Step 3: Modify your app
+Edit `App.tsx` and save — Fast Refresh will automatically update the app.
 
-Now that you have successfully run the app, let's make changes!
+Force reload:
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+* **Android:** Press `R` twice or open Dev Menu → Reload
+* **iOS:** Press `R` in simulator
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+---
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## 🧪 Troubleshooting
 
-## Congratulations! :tada:
+If the app fails to build:
 
-You've successfully run and modified your React Native App. :partying_face:
+* Verify environment setup
+* Ensure Android/iOS SDK is configured
+* Reinstall dependencies
+* Clear Metro cache
 
-### Now what?
+---
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 🤝 Contributing
 
-# Troubleshooting
+Contributions are welcome.
+Feel free to open issues or submit pull requests.
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+---
 
-# Learn More
+## 📄 License
 
-To learn more about React Native, take a look at the following resources:
+This project is licensed under the MIT License.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+
+## 👨‍💻 Author
+
+Built with performance, scalability, and real-world production use in mind.
